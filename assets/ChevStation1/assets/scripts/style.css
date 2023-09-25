@@ -1,0 +1,68 @@
+@import url("https://fonts.cdnfonts.com/css/zrnic");
+html {
+    cursor:none;
+}
+body {
+    cursor:none;
+    padding:0;
+    margin:0;
+    user-select: none;
+    height:100vh;
+    overflow:hidden;
+}
+.cur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index:5;
+}
+
+.curImg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.anywhere {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.aw {
+    font-family: 'Zrnic', sans-serif;
+}
+.plsdontsuemesony {
+    font-size: 7px;
+}
+.memcardname {
+    color:white;
+}
+.memcardtitle {
+    background-color: rgb(187, 187, 2);
+    width:200px;
+}
+.itemsCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display:flex;
+    flex-direction: row;
+}
+.musicplayertitle {
+    background-color: red;
+    width:200px;
+}
+.cdplayername {
+    color:white;
+}
+.icItem {
+    margin:7px;
+}
+.license center {
+    height:100vh;
+    width:100%;
+    background-color: black;
+}

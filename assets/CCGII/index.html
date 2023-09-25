@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chevy's Clicker Game II</title>
+    <link rel="stylesheet" href="scripts/style.css">
+    <link rel="icon" type="image-x/icon" href="icons/favicon.ico">
+</head>
+<body>
+    <center>
+        <h1>Chevy's Clicker Game <span style="color:red;">II</span></h1>
+        <br>
+        <button class="credits">Credits</button>
+        <br>
+        <br>
+        <button class="changelog">Changelog</button>
+        <br>
+        <h1 class="clicks">0</h1>
+        <br>
+        <button class="clicker">Click me!</button>
+        <br>
+        <br>
+        <br>
+        <div class="container">
+            <button class="downloadData upgrade">Save Data</button>
+            <input type="file" accept=".ccg" style="display:none;" id="loaddata" onchange="read(this)">
+            <label for="loaddata" class="ld upgrade">Load Data</label>
+        </div>
+        <br>
+        <br>
+        <div class="container">
+            <button class="upgrade1 upgrade">+1 Clicks/sec <span class="price">100 Clicks</span></button>
+            <h3 class="price upgrade1Owned">x0</h3>
+        </div>
+        <br>
+        <div class="container">
+            <button class="upgrade2 upgrade">+2 Clicks/sec <span class="price">250 Clicks</span></button>
+            <h3 class="price upgrade2Owned">x0</h3>
+        </div>
+            <br>
+        <div class="container">
+            <button class="upgrade3 upgrade">+3 Clicks/sec <span class="price">400 Clicks</span></button>
+            <h3 class="price upgrade3Owned">x0</h3>
+        </div>
+        <br>
+        <div class="container">
+            <button class="upgrade4 upgrade" style="font-size:15px;">Double your Clicks! <span class="price">350 Clicks</span></button>
+            <h3 class="price upgrade4Owned">x0</h3>
+        </div>
+            <br>
+        <div class="container">
+            <button class="upgrade5 upgrade" style="font-size:15px;">Triple your Clicks! <span class="price">600 Clicks</span></button>
+            <h3 class="price upgrade5Owned">x0</h3>
+        </div>
+        <br>
+        <div class="container">
+            <button class="upgrade6 upgrade" style="font-size:13px;">Quadruple your Clicks! <span class="price">1000 Clicks</span></button>
+            <h3 class="price upgrade6Owned">x0</h3>
+        </div>
+    </center>
+    <script>
+        let clicks = 0;
+        let clickstoadd = 1;
+        var clickss = document.querySelector(".clicks");
+        var clicker = document.querySelector(".clicker");
+        var upgrade1 = document.querySelector(".upgrade1");
+        var upgrade2 = document.querySelector(".upgrade2");
+        var upgrade3 = document.querySelector(".upgrade3");
+        var upgrade4 = document.querySelector(".upgrade4");
+        var upgrade5 = document.querySelector(".upgrade5");
+        var upgrade6 = document.querySelector(".upgrade6");
+        var changelogURL = "https://verygenericusername.github.io/ChevysClickerGameIIChangelog";
+        var changelog = document.querySelector(".changelog");
+        var credits = document.querySelector(".credits");
+        var downloadData = document.querySelector(".downloadData");
+        var upgrade1owned = document.querySelector(".upgrade1Owned");
+        var upgrade2owned = document.querySelector(".upgrade2Owned");
+        var upgrade3owned = document.querySelector(".upgrade3Owned");
+        var upgrade4owned = document.querySelector(".upgrade4Owned");
+        var upgrade5owned = document.querySelector(".upgrade5Owned");
+        var upgrade6owned = document.querySelector(".upgrade6Owned");
+        var oneclicksasec = 0;
+        var twoclicksasec = 0;
+        var threeclicksasec = 0;
+        var doubleyourclicks = 0;
+        var tripleyourclicks = 0;
+        var quadrupleyourclicks = 0;
+        var upgrade1o = 0;
+        var upgrade2o = 0;
+        var upgrade3o = 0;
+        var upgrade4o = 0;
+        var upgrade5o = 0;
+        var upgrade6o = 0;
+        var decodeAmount = 3;
+        clicker.addEventListener("click", function(){
+            clicks = clicks + clickstoadd;
+        });
+        document.addEventListener("keydown", function(e){
+            e.preventDefault();
+            if(e.keyCode === 32){
+                clicks = clicks + clickstoadd;
+            }
+        });
+        upgrade1.addEventListener("click", function(){
+            if(clicks >= 100){
+                clicks = clicks - 100;
+                oneclicksasec++;
+                upgrade1o++;
+                upgrade1owned.innerHTML = "x" + upgrade1o;
+            }else {
+                alert("Not Enough Clicks.");
+            }
+        });
+        upgrade2.addEventListener("click", function(){
+            if(clicks >= 250){
+                clicks = clicks - 250;
+                twoclicksasec++;
+                upgrade2o++;
+                upgrade2owned.innerHTML = "x" + upgrade2o;
+            }else {
+                alert("Not Enough Clicks.");
+            }
+        });
+        upgrade3.addEventListener("click", function(){
+            if(clicks >= 400){
+                clicks = clicks - 400
+                threeclicksasec++;
+                upgrade3o++;
+                upgrade3owned.innerHTML = "x" + upgrade3o;
+            }else {
+                alert("Not Enough Clicks.");
+            }
+        });
+        upgrade4.addEventListener("click", function(){
+            if(clicks >= 350){
+                clicks = clicks - 350;
+                clickstoadd = clickstoadd * 2;
+                upgrade4o++;
+                doubleyourclicks++;
+                upgrade4owned.innerHTML = "x" + upgrade4o;
+            }else {
+                alert("Not Enough Clicks.");
+            }
+        });
+        upgrade5.addEventListener("click", function(){
+            if(clicks >= 600){
+                clicks = clicks - 600;
+                clickstoadd = clickstoadd * 3;
+                tripleyourclicks++;
+                upgrade5o++;
+                upgrade5owned.innerHTML = "x" + upgrade5o;
+            }else {
+                alert("Not Enough Clicks.");
+            }
+        });
+        upgrade6.addEventListener("click", function(){
+            if(clicks >= 1000){
+                clicks = clicks - 1000;
+                clickstoadd = clickstoadd * 4;
+                quadrupleyourclicks++;
+                upgrade6o++;
+                upgrade6owned.innerHTML = "x" + upgrade6o;
+            }else {
+                alert("Not Enough Clicks.");
+            }
+        });
+        downloadData.addEventListener("click", function(){
+            var data = `{"clicks":"${clicks}","clickstoadd":"${clickstoadd}","oneclicksasec":"${oneclicksasec}","twoclicksasec":"${twoclicksasec}","threeclicksasec":"${threeclicksasec}","doubleyourclicks":"${doubleyourclicks}","tripleyourclicks":"${tripleyourclicks}","quadrupleyourclicks":"${quadrupleyourclicks}","upgrades":[${upgrade1o},${upgrade2o},${upgrade3o},${upgrade4o},${upgrade5o},${upgrade6o}]}`;
+            var encoded1 = btoa(data);
+            var encoded2 = btoa(encoded1);
+            var encoded3 = btoa(encoded2);
+            var decodeAmountt = "3";
+            var encoded1_2 = btoa(decodeAmountt);
+            var encoded2_2 = btoa(encoded1_2);
+            var encoded3_2 = btoa(encoded2_2);
+            var encodedsave = encoded3;
+            var data2 = `{"decodeAmount":"${encoded3_2}","data":"${encodedsave}"}`;
+            var encoded1_3 = btoa(data2);
+            var encoded2_3 = btoa(encoded1_3);
+            var encoded3_3 = btoa(encoded2_3);
+            var blob = new Blob([encoded3_3], {type: "application/json"});
+            var url = URL.createObjectURL(blob);
+            var a = document.createElement("a");
+            a.href = url;
+            a.download = "ChevysClickerGameSave.ccg";
+            a.click();
+        });
+        function read(input){
+            var file = input.files[0];
+            var reader = new FileReader();
+            reader.onload = function(){
+                var result = reader.result;
+                var current = result;
+                for(let i = 0; i < decodeAmount; i++){
+                    var decode = atob(current);
+                    current = decode;
+                }
+                var parse1 = JSON.parse(current);
+                var resultDM = 0;
+                var current2 = parse1.decodeAmount;
+                for(let i = 0; i < decodeAmount; i++){
+                    var decode2 = atob(current2);
+                    current2 = decode2;
+                }
+                resultDM = current2;
+                    var current3 = parse1.data;
+                    for(let i = 0; i < resultDM; i++){
+                        var decode3 = atob(current3);
+                        current3 = decode3;
+                    }
+                    var dataparse = JSON.parse(current3);
+                    clicks = dataparse.clicks;
+                    clickstoadd = dataparse.clickstoadd;
+                    oneclicksasec = dataparse.oneclicksasec;
+                    twoclicksasec = dataparse.twoclicksasec;
+                    threeclicksasec = dataparse.threeclicksasec;
+                    doubleyourclicks = dataparse.doubleyourclicks;
+                    tripleyourclicks = dataparse.tripleyourclicks;
+                    quadrupleyourclicks = dataparse.quadrupleyourclicks;
+                    upgrade1o = dataparse.upgrades[0];
+                    upgrade2o = dataparse.upgrades[1];
+                    upgrade3o = dataparse.upgrades[2];
+                    upgrade4o = dataparse.upgrades[3];
+                    upgrade5o = dataparse.upgrades[4];
+                    upgrade6o = dataparse.upgrades[5];
+            }
+            reader.readAsText(file);
+        }
+        credits.addEventListener("click", function(){
+            window.open("htmls/credits.html");
+        });
+        changelog.addEventListener("click", function(){
+            window.open(changelogURL);
+        });
+        setInterval(function(){
+            clickss.innerHTML = clicks;
+            if(clicks > 99999999999999999999){
+                clicks = 99999999999999999999;
+            }
+        });
+        setInterval(function(){
+            clicks = clicks + oneclicksasec;
+        },1000);
+        setInterval(function(){
+            clicks = clicks + twoclicksasec;
+        },1000);
+        setInterval(function(){
+            clicks = clicks + threeclicksasec;
+        },1000);
+        setInterval(function(){
+            upgrade1owned.innerHTML = "x" + upgrade1o;
+            upgrade2owned.innerHTML = "x" + upgrade2o;
+            upgrade3owned.innerHTML = "x" + upgrade3o;
+            upgrade4owned.innerHTML = "x" + upgrade4o;
+            upgrade5owned.innerHTML = "x" + upgrade5o;
+            upgrade6owned.innerHTML = "x" + upgrade6o;
+        });
+    </script>
+</body>
+</html>

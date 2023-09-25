@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html>
+<head>
+  	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+</head>
+<body>
+  	<style>
+#gamename {
+  color:black;
+  font-size:30px;
+  font-family:cursive;
+  text-align:center;
+}
+#button {
+  width:250px;
+  height:100px;
+  border-radius:8px;
+  font-size:50px;
+  font-family:cursive;
+  background-color:blue;
+  color:white;
+  text-align:center;
+}
+#reset {
+  width:250px;
+  height:50px;
+  border-radius:8px;
+  font-size:30px;
+  font-family:cursive;
+  background-color:red;
+  color:white;
+  text-align:center;
+}
+#score {
+  color:black;
+  font-size:100px;
+  font-family:cursive;
+  text-align:center;
+  padding:20px;
+}
+#savedata {
+  width:150px;
+  height:50px;
+  color:white;
+  font-size:20px;
+  font-family:cursive;
+  text-align:center;
+  background-color:cyan;
+  border-radius:8px;
+}
+#upgrades {
+  color:black;
+  font-size:50px;
+  font-family:cursive;
+  text-align:center;
+  padding:20px;
+}
+#upgrade1 {
+  color:white;
+  width:150px;
+  height:50px;
+  background-color:gray;
+  font-family:cursive;
+  font-size:20px;
+  text-align:center;
+  border-radius:8px;
+}
+#upgrade2 {
+  color:white;
+  width:150px;
+  height:50px;
+  background-color:gray;
+  font-family:cursive;
+  font-size:20px;
+  text-align:center;
+  border-radius:8px;
+}
+#upgrade3 {
+  color:white;
+  width:150px;
+  height:50px;
+  background-color:gray;
+  font-family:cursive;
+  font-size:20px;
+  text-align:center;
+  border-radius:8px;
+}
+#upgrade4 {
+  color:white;
+  width:150px;
+  height:50px;
+  background-color:gray;
+  font-family:cursive;
+  font-size:20px;
+  text-align:center;
+  border-radius:8px;
+}
+#upgrade5 {
+  color:white;
+  width:150px;
+  height:50px;
+  background-color:gray;
+  font-family:cursive;
+  font-size:20px;
+  text-align:center;
+  border-radius:8px;
+}
+#price {
+  color:black;
+  font-size:15px;
+  font-family:cursive;
+  text-align:center;
+}
+#price2 {
+  color:black;
+  font-size:15px;
+  font-family:cursive;
+  text-align:center;
+}
+#price3 {
+  color:black;
+  font-size:15px;
+  font-family:cursive;
+  text-align:center;
+}
+#price4 {
+  color:black;
+  font-size:15px;
+  font-family:cursive;
+  text-align:center;
+}
+#price5 {
+  color:black;
+  font-size:15px;
+  font-family:cursive;
+  text-align:center;
+}
+#cowned {
+color:black;
+font-size:20px;
+font-family:cursive;
+text-align:center;
+}
+#cowned2 {
+color:black;
+font-size:20px;
+font-family:cursive;
+text-align:center;
+}
+#cowned3 {
+  color:black;
+  font-size:20px;
+  font-family:cursive;
+  text-align:center;
+}
+#cowned4 {
+  color:black;
+  font-size:20px;
+  font-family:cursive;
+  text-align:center;
+}
+#cowned5 {
+  color:black;
+  font-size:20px;
+  font-family:cursive;
+  text-align:center;
+}
+.downloadSave {
+   width:100px;
+  height:70px;
+  color:white;
+  font-size:20px;
+  font-family:cursive;
+  text-align:center;
+  background-color:cyan;
+  border-radius:8px;
+}
+.loadSave {
+     width:100px;
+  height:70px;
+  color:white;
+  font-size:20px;
+  font-family:cursive;
+  text-align:center;
+  background-color:cyan;
+  border-radius:8px;
+  padding:20px
+}
+</style>
+<div id="gamename">
+Chevy's Clicker Game
+</div>
+<div align="center">
+<input id="ClickName" placeholder="Type Name Here">´s
+<select id="clicks">
+<option selected>Clickery</option>
+<option>Clickys</option>
+<option>Clickers</option>
+</select>
+</div>
+<div id="score">0</div>
+<div align="center" style="position:relative; bottom:-50px;">
+<button onclick="clicky()" id="button">click me</button>
+</div>
+<div align="center" style="position:relative; bottom:-100px;">
+<button id="reset" onclick="reset()">reset ALL data</button>
+</div>
+<input type="file" id="save-file" accept=".ccgsf" style="display:none;">
+<div align="center">
+<button id="savedata" style="position:relative; bottom:-150px;" onclick="saveData()">
+Save Data <button id="downloadData" class="downloadSave" style="position:relative; bottom:-135px; right:-7px;">
+Download Data
+</button>
+<label for="save-file" class="loadSave" style="position:relative; bottom:-150px; right:-10px;">Load Data</label>
+</button>
+</div>
+<div id="upgrades" style="position:relative; bottom:-150px;">
+Upgrades:
+</div>
+<div align="center" style="position:relative; bottom:-150px;">
+<button id="upgrade1" onclick="upgrade1buy()">
++1 Clicks/sec <span id="price">200 Clicks</span> <div id="cowned" style="position:relative; right:-120px; top:-40px;">x0</div>
+</button>
+</div>
+<div align="center" style="position:relative; bottom:-200px;">
+  <button id="upgrade2" onclick="upgrade2buy()">+2 Clicks/sec
+    <span id="price2">350 Clicks</span> <div id="cowned2" style="position:relative; right:-120px; top:-40px;">x0</div>
+  </button>
+</div>
+<div align="center" style="position:relative; bottom:-250px;">
+  <button id="upgrade5" onclick="upgrade5buy()">+3 Clicks/sec
+    <span id="price5">450 Clicks</span> <div id="cowned5" style="position:relative; right:-120px; top:-40px;">x0</div>
+  </button>
+</div>
+<div align="center" style="position:relative; bottom:-300px;">
+  <button id="upgrade3" onclick="upgrade3buy()">Double your Clicks
+    <span id="price3">500 Clicks</span> <div id="cowned3" style="position:relative; right:-120px; top:-40px;">x0</div>
+  </button>
+</div>
+<div align="center" style="position:relative; bottom:-350px;">
+  <button id="upgrade4" onclick="upgrade4buy()">TRIPLE your Clicks
+    <span id="price4">750 Clicks</span> <div id="cowned4" style="position:relative; right:-120px; top:-40px;">x0</div>
+  </button>
+</div>
+<script>
+let counter;
+if(!localStorage.getItem("score")){
+  localStorage.setItem("score","0");
+  counter = parseInt(localStorage.getItem("score"));
+}
+var clickers = document.getElementById("clicks");
+var NME = document.getElementById("ClickName");
+var selectedOP;
+var selectedNME;
+var upgrade1b = false;
+var upgrade2b = false;
+var upgrade3b = false;
+var upgrade4b = false;
+var upgrade5b = false;
+var upg1o;
+var upg2o;
+var upg3o;
+var upg4o;
+var upg5o;
+var num = 0;
+var num2 = 0;
+var num3 = 0;
+var add = 1;
+var resett = false;
+function check(){
+if(upgrade1b = true) {
+if(resett == false){
+  setInterval(increment,1000);
+}
+}
+}
+function check2(){
+if(upgrade2b == true) {
+if(resett == false){
+  setInterval(increment2,1000);
+}
+}
+}
+function check3(){
+if(upgrade5b == true) {
+if(resett == false){
+  setInterval(increment3,1000);
+}
+}
+}
+if(!localStorage.getItem("Upgrade1Owned")){
+  localStorage.setItem("Upgrade1Owned","0");
+  upg1o = parseInt(localStorage.getItem("Upgrade1Owned"));
+}
+if(!localStorage.getItem("Upgrade2Owned")){
+  localStorage.setItem("Upgrade2Owned","0");
+  upg2o = parseInt(localStorage.getItem("Upgrade2Owned"));
+}
+if(!localStorage.getItem("add")){
+localStorage.setItem("add",add);
+add = parseInt(localStorage.getItem("add"));
+}
+if(localStorage.getItem("Upgrade1Owned") > 0){
+  upgrade1b = true;
+  document.getElementById("cowned").innerText = "x" + localStorage.getItem("Upgrade1Owned");
+  while(num < localStorage.getItem("Upgrade1Owned")){
+    num = num + 1;
+    check();
+  }
+}
+if(localStorage.getItem("Upgrade2Owned") > 0){
+  upgrade2b = true;
+  document.getElementById("cowned2").innerText = "x" + localStorage.getItem("Upgrade2Owned");
+  while(num2 < localStorage.getItem("Upgrade2Owned")){
+    num2 = num2 + 1;
+    check2();
+  }
+}
+if(localStorage.getItem("Upgrade3Owned") > 0){
+upgrade3b = true;
+add = parseInt(localStorage.getItem("add"));
+document.getElementById("cowned3").innerText = "x" + localStorage.getItem("Upgrade3Owned");
+}
+if(localStorage.getItem("Upgrade4Owned") > 0){
+upgrade4b = true;
+add = parseInt(localStorage.getItem("add"));
+document.getElementById("cowned4").innerText = "x" + localStorage.getItem("Upgrade4Owned");
+}
+if(localStorage.getItem("Upgrade5Owned") > 0){
+  upgrade5b = true;
+  document.getElementById("cowned5").innerText = "x" + localStorage.getItem("Upgrade5Owned");
+  while(num3 < localStorage.getItem("Upgrade5Owned")){
+    num3 = num3 + 1;
+    check3();
+  }
+}
+if(!localStorage.getItem("Upgrade3Owned")){
+localStorage.setItem("Upgrade3Owned", "0");
+add = 0;
+add = add + 1;
+localStorage.setItem("add",add);
+document.getElementById("cowned3").innerText = "x" + localStorage.getItem("Upgrade3Owned");
+}
+if(!localStorage.getItem("Upgrade4Owned")){
+localStorage.setItem("Upgrade4Owned", "0");
+localStorage.setItem("add",add);
+document.getElementById("cowned4").innerText = "x" + localStorage.getItem("Upgrade4Owned");
+}
+if(!localStorage.getItem("Upgrade5Owned")){
+localStorage.setItem("Upgrade5Owned", "0");
+localStorage.setItem("add",add);
+document.getElementById("cowned5").innerText = "x" + localStorage.getItem("Upgrade5Owned");
+}
+setInterval(function(){
+upg1o = parseInt(localStorage.getItem("Upgrade1Owned"));
+});
+setInterval(function(){
+upg2o = parseInt(localStorage.getItem("Upgrade2Owned"));
+});
+setInterval(function(){
+upg3o = parseInt(localStorage.getItem("Upgrade3Owned"));
+});
+setInterval(function(){
+upg4o = parseInt(localStorage.getItem("Upgrade4Owned"));
+});
+setInterval(function(){
+upg5o = parseInt(localStorage.getItem("Upgrade5Owned"));
+});
+function increment() {
+  counter = parseInt(localStorage.getItem("score")) + 1;
+  localStorage.setItem("score", counter);
+}
+function increment2() {
+  counter = parseInt(localStorage.getItem("score")) + 2;
+  localStorage.setItem("score", counter);
+}
+function increment3() {
+  counter = parseInt(localStorage.getItem("score")) + 3;
+  localStorage.setItem("score", counter);
+}
+function upgrade1buy(){
+if(counter >= 200){
+  if(upg1o > 5999){
+    alert("Cannot buy, max owned.");
+  }else{
+    upg1o = upg1o + 1;
+  localStorage.setItem("Upgrade1Owned",upg1o);
+  counter = counter - 200;
+  localStorage.setItem("score",counter);
+  if(counter < 0){
+  counter = 0;
+  localStorage.setItem("score",counter);
+}
+  upgrade1b = true;
+  document.getElementById("cowned").innerText = "x" + localStorage.getItem("Upgrade1Owned");
+  check();
+  }
+}
+}
+function upgrade2buy(){
+if(counter >= 200){
+  if(upg2o > 5999){
+    alert("Cannot buy, max owned.");
+  }else{
+    upg2o = upg2o + 1;
+  localStorage.setItem("Upgrade2Owned",upg2o);
+  counter = counter - 350;
+  if(counter < 0){
+  counter = 0;
+  localStorage.setItem("score",counter);
+}
+  localStorage.setItem("score",counter);
+  upgrade2b = true;
+  document.getElementById("cowned2").innerText = "x" + localStorage.getItem("Upgrade2Owned");
+  check2();
+  }
+}
+}
+function upgrade3buy(){
+if(counter >= 500){
+if(upg3o > 5){
+alert("Cannot buy, max owned.");
+}else{
+counter = counter - 500;
+localStorage.setItem("score",counter);
+upg3o = upg3o + 1;
+if(!localStorage.getItem("add")){
+add = add + 1;
+localStorage.setItem("add",add);
+add = parseInt(localStorage.getItem("add"));
+}
+add = add * 2
+console.log(upg3o);
+console.log(add);
+localStorage.setItem("add",add);
+add = parseInt(localStorage.getItem("add"));
+localStorage.setItem("Upgrade3Owned",upg3o);
+document.getElementById("cowned3").innerText = "x" + localStorage.getItem("Upgrade3Owned");
+}
+}
+}
+function upgrade4buy(){
+if(counter >= 750){
+if(upg4o > 5){
+alert("Cannot buy, max owned.");
+}else{
+counter = counter - 750;
+localStorage.setItem("score",counter);
+upg4o = upg4o + 1;
+if(!localStorage.getItem("add")){
+add = add + 1;
+localStorage.setItem("add",add);
+add = parseInt(localStorage.getItem("add"));
+}
+add = add * 3
+console.log(upg4o);
+localStorage.setItem("add",add);
+add = parseInt(localStorage.getItem("add"));
+console.log(add);
+localStorage.setItem("Upgrade4Owned",upg4o);
+document.getElementById("cowned4").innerText = "x" + localStorage.getItem("Upgrade4Owned");
+}
+}
+}
+function upgrade5buy(){
+if(counter >= 200){
+  if(upg5o > 5999){
+    alert("Cannot buy, max owned.");
+  }else{
+  console.log(upg5o);
+    upg5o = upg5o + 1;
+  localStorage.setItem("Upgrade5Owned",upg5o);
+  counter = counter - 450;
+  if(counter < 0){
+  counter = 0;
+  localStorage.setItem("score",counter);
+}
+  localStorage.setItem("score",counter);
+  upgrade5b = true;
+  document.getElementById("cowned5").innerText = "x" + localStorage.getItem("Upgrade5Owned");
+  check3();
+  }
+}
+}
+var cn = document.getElementById("ClickName");
+clickers.addEventListener("change",function(){
+selectedOP = clickers.value;
+localStorage.setItem("selectedOP",selectedOP);
+selectedOP = localStorage.getItem("selectedOP");
+});
+cn.addEventListener("change",function(){
+NME.value = cn.value;
+localStorage.setItem("SelectedNME",NME.value);
+NME.value = localStorage.getItem("SelectedNME");
+});
+if(localStorage.getItem("selectedOP")) {
+selectedOP = localStorage.getItem("selectedOP");
+clickers.value = selectedOP;
+}
+if(localStorage.getItem("SelectedNME")) {
+selectedNME = localStorage.getItem("SelectedNME");
+NME.value = selectedNME;
+}
+if(localStorage.getItem("score")) {
+counter = localStorage.getItem("score");
+} else{
+localStorage.setItem("score","0");
+counter = parseInt(localStorage.setItem("score","0"));
+}
+setInterval(function(){
+    document.getElementById("score").innerText = counter;
+});
+function clicky() {
+  if(localStorage.getItem("add") > 1){
+  counter = parseInt(localStorage.getItem("score")) + add;
+  localStorage.setItem("score", counter);
+  }else{
+  counter = parseInt(localStorage.getItem("score")) + 1;
+  localStorage.setItem("score", counter);
+  }
+  localStorage.setItem("score", counter);
+}
+window.addEventListener("keydown", function(e){
+if(e.key == " "){
+e.preventDefault();
+clicky();
+}
+});
+var downloadbtn = document.getElementById("downloadData");
+downloadbtn.addEventListener("click",function(){
+    var saveDatav2 = {score: counter, upgradesOwned: [upg1o,upg2o,upg3o,upg4o,upg5o], add: add, selectedOP: selectedOP, NME: NME.value};
+    var data = JSON.stringify(saveDatav2);
+    var blob = new Blob([data], {type: "application/json"});
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url;
+    a.download = "ChevysClickerGameSave.ccgsf";
+    a.click();
+});
+var reading = false;
+var saveinput = document.getElementById("save-file");
+saveinput.addEventListener("change",function(){
+var file = saveinput.files[0];
+var reader = new FileReader();
+reader.onloadend = function(){
+reading = true;
+var saveDatav = JSON.parse(reader.result);
+console.log(saveDatav);
+add = saveDatav.add;
+NME.value = saveDatav.NME;
+counter = saveDatav.score;
+selectedOP = saveDatav.selectedOP;
+clickers.value = selectedOP;
+upg1o = saveDatav.upgradesOwned[0];
+upg2o = saveDatav.upgradesOwned[1];
+upg3o = saveDatav.upgradesOwned[2];
+upg4o = saveDatav.upgradesOwned[3];
+upg5o = saveDatav.upgradesOwned[4];
+saveData();
+console.log(reading);
+reading = false;
+location.reload();
+};
+reader.readAsText(file);
+});
+function reset(){
+if(confirm("Are you sure you want to ERASE ALL your data?")) {
+  resett = true;
+  upgrade1b = false;
+  localStorage.removeItem("Upgrade1Owned");
+  localStorage.removeItem("Upgrade2Owned");
+  localStorage.removeItem("Upgrade3Owned");
+  localStorage.removeItem("Upgrade4Owned");
+  localStorage.removeItem("Upgrade5Owned");
+  localStorage.removeItem("add");
+  add = 1;
+  console.log(add);
+
+localStorage.setItem("score","0");
+  if(localStorage.getItem("score")){
+    localStorage.setItem("score","0");
+  }
+localStorage.setItem("selectedOP", "");
+localStorage.setItem("SelectedNME", "");
+NME.value = "";
+resett = false;
+location.reload();
+}
+}
+function saveData() {
+if(reading == true){
+selectedOP = (clickers.value);
+localStorage.setItem("score", counter);
+localStorage.setItem("selectedOP",selectedOP);
+localStorage.setItem("SelectedNME", NME.value);
+localStorage.setItem("Upgrade1Owned",upg1o);
+localStorage.setItem("Upgrade2Owned",upg2o);
+localStorage.setItem("Upgrade3Owned",upg3o);
+localStorage.setItem("Upgrade4Owned",upg4o);
+localStorage.setItem("Upgrade5Owned",upg5o);
+localStorage.setItem("add",add);
+}else{
+if(confirm("Save Data? (This will save your score, selected name, dropdown box, and upgrades.)")) {
+selectedOP = (clickers.value);
+localStorage.setItem("score", counter);
+localStorage.setItem("selectedOP",selectedOP);
+localStorage.setItem("SelectedNME", NME.value);
+localStorage.setItem("Upgrade1Owned",upg1o);
+localStorage.setItem("Upgrade2Owned",upg2o);
+localStorage.setItem("Upgrade3Owned",upg3o);
+localStorage.setItem("Upgrade4Owned",upg4o);
+localStorage.setItem("add",add);
+}
+}
+}
+</script>
+
+  <script type="text/javascript">
+    	
+  </script>
+
+  <style type="text/css">
+    	
+  </style>
+</body>
+</html>

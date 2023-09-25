@@ -1,0 +1,46 @@
+@font-face {
+    font-family: "main";
+    src: url("https://verygenericusername.github.io/fonts/csm.ttf");
+}
+body {
+    padding:0%;
+    margin:0%;
+    background-image: url("background.jpg");
+    background-size: 250%;
+    background-repeat: no-repeat;
+    scroll-behavior: smooth;
+}
+@keyframes title {
+    0% {
+        height:10px;
+    }
+    100% {
+        height:700px;
+    }
+}
+@keyframes title2 {
+    0% {
+        height:700px;
+    }
+    100% {
+        height:0px;
+    }
+}
+.titleAnimation {
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+}
+h1,h2,h3,h4,h5,h6 {
+    color:white;
+    font-family:"main";
+}
+.form {
+    padding: 20px;
+    display: inline-block;
+}
+.copyright {
+    position:absolute;
+    bottom:0;
+}

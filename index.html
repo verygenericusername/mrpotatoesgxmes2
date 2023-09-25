@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mr. potatoes gxmes II</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <script src="assets/URLHandler.js"></script>
+</head>
+<body>
+    <div class="titleAnimation">
+        <img src="assets/logo.png" class="title">
+    </div>
+    <center class="gxmes" style="display:none;">
+        <h1>mr. potatoes gxmes II</h1>
+        <h6>mr. potatoes gxmes is back. Enjoy it while it lasts!</h6>
+        <h4>&copy; mr. potatoes gxmes, 2023.</h4>
+        <br>
+        <br>
+        <div class="main">
+            <div class="gxme" style="display:inline-block; padding:10px;">
+                <img src="assets/game1.png" height="100">
+                <br>
+                <h3>1v1.LOL</h3>
+                <br>
+                <button class="game1">Play</button>
+            </div>
+            <div class="gxme" style="display:inline-block; padding:10px;">
+                <img src="assets/game2.png" height="100">
+                <br>
+                <h3>Subway Surfers</h3>
+                <br>
+                <button class="game2">Play</button>
+            </div>
+            <div class="gxme" style="display:inline-block; padding:10px;">
+                <img src="assets/game3.png" height="100">
+                <br>
+                <h3>Madalin Stunt Cars 2</h3>
+                <br>
+                <button class="game3">Play</button>
+            </div>
+            <div class="gxme" style="display:inline-block; padding:10px;">
+                <img src="assets/game4.png" height="100">
+                <br>
+                <h3>Temple Run</h3>
+                <br>
+                <button class="game4">Play</button>
+            </div>
+            <div class="gxme" style="display:inline-block; padding:10px;">
+                <img src="assets/game5.png" height="100">
+                <br>
+                <h3>Jenga</h3>
+                <br>
+                <button class="game5">Play</button>
+            </div>
+            <div class="gxme" style="display:inline-block; padding:10px;">
+                <img src="assets/game6.png" height="100">
+                <br>
+                <h3>2048</h3>
+                <br>
+                <button class="game6">Play</button>
+            </div>
+            <div class="gxme" style="display:inline-block; padding:10px;">
+                <img src="assets/game7.png" height="100">
+                <br>
+                <h3>Retrobowl</h3>
+                <br>
+                <button class="game7">Play</button>
+            </div>
+            <div class="gxme" style="display:inline-block; padding:10px;">
+                <img src="assets/game8.png" height="100">
+                <br>
+                <h3>Fruit Ninja</h3>
+                <br>
+                <button class="game8">Play</button>
+            </div>
+            <div class="gxme" style="display:inline-block; padding:10px;">
+                <img src="assets/noicon.png" height="100">
+                <br>
+                <h3>Chevy's Clicker Game I</h3>
+                <br>
+                <button class="game9">Play</button>
+            </div>
+            <div class="gxme" style="display:inline-block; padding:10px;">
+                <img src="assets/noicon.png" height="100">
+                <br>
+                <h3>Chevy's Clicker Game II</h3>
+                <br>
+                <button class="game10">Play</button>
+            </div>
+            <div class="gxme" style="display:inline-block; padding:10px;">
+                <img src="assets/noicon.png" height="100">
+                <br>
+                <h3>Chevy's BIG Collection</h3>
+                <br>
+                <button class="game11">Play</button>
+            </div>
+            <div class="gxme" style="display:inline-block; padding:10px;">
+                <img src="assets/noicon.png" height="100">
+                <br>
+                <h3>Chevy's Soundboard</h3>
+                <br>
+                <button class="game12">Play</button>
+            </div>
+            <div class="gxme" style="display:inline-block; padding:10px;">
+                <img src="assets/noicon.png" height="100">
+                <br>
+                <h3>ChevStation1</h3>
+                <br>
+                <button class="game13">Play</button>
+            </div>
+        </div>
+        <br>
+        <h4>Scroll up to see more games if currently scrolled down.</h4>
+        <div class="forms">
+            <div class="form">
+                <h2>Want to suggest a game? Suggest it with this google Form!</h2>
+        <br>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdL-lIqU6LF2mC5X95akZKzSTsW16d8V-M1TlMX0IfjVvCabg/viewform?embedded=true" width="640" height="483" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+            </div>
+            <div class="form">
+                <h2>Is there a problem/issue happening on mr. potatoes gxmes? Report it here.</h2>
+                <br>
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSet6v9zDW1hLym0RrzOv6F7Y8BEUvxQfYZq0HhJjUztvtnXdw/viewform?embedded=true" width="640" height="586" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+            </div>
+        </div>
+    </center>
+    <script>
+        var titleAnimation = document.querySelector(".titleAnimation");
+        var title = document.querySelector(".title");
+        var animationComplete = false;
+        title.style.display = "none";
+        var gxmes = document.querySelector(".gxmes");
+        var game1 = document.querySelector(".game1");
+        var game2 = document.querySelector(".game2");
+        var game3 = document.querySelector(".game3");
+        var game4 = document.querySelector(".game4");
+        var game5 = document.querySelector(".game5");
+        var game6 = document.querySelector(".game6");
+        var game7 = document.querySelector(".game7");
+        var game8 = document.querySelector(".game8");
+        var game9 = document.querySelector(".game9");
+        var game10 = document.querySelector(".game10");
+        var game11 = document.querySelector(".game11");
+        var game12 = document.querySelector(".game12");
+        var game13 = document.querySelector(".game13");
+        load();
+        function load(){
+             gxmes.style.display = "";   
+        }
+        function sendURLRequest(BASE64_URL){
+            url.open(BASE64_URL);
+        }
+        game1.addEventListener("click", function(){
+            sendURLRequest("aHR0cHM6Ly9kb2NzLW9wZW5zb2NpYWwuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2dhZGdldHMvaWZyP3VybD1odHRwczovL2Nkbi5qc2RlbGl2ci5uZXQvZ2gva28xb3YvdG9AMWU4YTk0OWY4OWZjZjJiMTEwNjQwYzQxYTA3MDVkYjAxNDA1ZDE2MS9kN3VmNC54bWw=");
+        });
+        game2.addEventListener("click", function(){
+            window.open("assets/game2.html");
+        });
+        game3.addEventListener("click", function(){
+            window.open("assets/game3.html");
+        });
+        game4.addEventListener("click", function(){
+            window.open("assets/game4.html");
+        });
+        game5.addEventListener("click", function(){
+            window.open("assets/game5.html");
+        });
+        game6.addEventListener("click", function(){
+            window.open("assets/game6.html");
+        });
+        game7.addEventListener("click", function(){
+            window.open("assets/game7.html");
+        });
+        game8.addEventListener("click", function(){
+            window.open("assets/game8.html");
+        });
+        game9.addEventListener("click", function(){
+            window.open("assets/game9.html");
+        });
+        game10.addEventListener("click", function(){
+            window.open("assets/CCGII/index.html");
+        });
+        game11.addEventListener("click", function(){
+            window.open("assets/ChevysBigCollectionOne/index.html");
+        });
+        game12.addEventListener("click", function(){
+            window.open("assets/ChevysSoundboard/Soundboard.html");
+        });
+        game13.addEventListener("click", function(){
+            window.open("assets/ChevStation1/index.html");
+        });
+    </script>
+</body>
+</html>

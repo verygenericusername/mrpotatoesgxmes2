@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chevy's BIG Collection #1 | Chevy's Stuff Disc #3</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="icons/favicon.ico">
+    <script src="redirect.js"></script>
+    <script src="icons.js"></script>
+    <script src="sounds.js"></script>
+    <audio>
+        <source src="sounds/click_select.wav" type="audio/wav">
+        <source src="sounds/hover.wav" type="audio/wav">
+    </audio>
+</head>
+<body>
+    <center>
+        <h4>Chevy's Stuff:</h4>
+        <h1>Chevy's BIG Collection #1</h1>
+        <br>
+        <a href="#" id="readme">View README</a>
+        <br>
+        <br>
+    </center>
+    <script>
+        var readme = document.getElementById("readme");
+        readme.addEventListener("click", function(){
+            window.open("README.txt");
+        });
+    </script>
+    <script>
+        const center = document.querySelector("center");
+        icons.create("asteroids","png","Asteroids II (Internet Optional.)","games/Asteroids II.html");
+        icons.create("flappybird","png","Flappy Bird (Internet Optional.)","games/flappybird.html");
+        icons.create("geometrydash","png","Geometry Dash (Internet Optional.)","games/geometrydash.html");
+        icons.create("gettingoverit","png","Getting Over It (Internet Optional.)","games/gettingoverit.html");
+        icons.create("noicon","png","Kidnapping Simulator (Internet Optional.)","games/kidnappingsimulator.html");
+        icons.create("mc","png","Minecraft (Internet Optional.)","games/minecraft.html");
+        icons.create("msc2","jpg","Madalin Stunt Cars 2 (Internet Optional.)","games/msc2.html");
+        icons.create("nugget royale","jpg","Nugget Royale (Internet Optional.)","games/nuggetroyale.html");
+        icons.create("pizzablaster","png","Pizza Blaster (Internet Optional.)","games/pizzablaster.html");
+        icons.create("subwaysurfers","png","Subway Surfers (Internet Optional.)","games/subwaysurfers.html");
+        icons.create("templerun","jpg","Temple Run (Internet Optional.)","games/templerun.html");
+        for(let i = 0; i < 24; i++){
+            var br = document.createElement("br");
+            center.appendChild(br);
+        }
+        var h4 = document.createElement("h4");
+        h4.innerHTML = "©Chevy's Stuff, 2023.";
+        center.appendChild(h4);
+    </script>
+</body>
+</html>

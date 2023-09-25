@@ -1,0 +1,14 @@
+@import url("/fonts/roboto-bold.ttf");
+body {
+    background-color: #0ba0db;
+}
+h1 {
+    color:white;
+    font-family: 'Roboto', sans-serif;
+    text-shadow: 4px 4px 8px black;
+}
+h4 {
+    color:white;
+    font-family: 'Roboto', sans-serif;
+    text-shadow: 4px 4px 8px black;
+}

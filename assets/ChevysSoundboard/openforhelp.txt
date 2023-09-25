@@ -1,0 +1,3 @@
+To use my soundboard, just open 'Soundboard.html'.
+
+Enjoy using it!

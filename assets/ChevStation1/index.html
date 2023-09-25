@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChevStation1</title>
+  <link rel="stylesheet" href="assets/scripts/style.css">
+  <script src="assets/scripts/cursor.js"></script>
+  <script src="assets/scripts/others.js"></script>
+  <script src="assets/scripts/jquery.js"></script>
+  <script src="assets/scripts/jszip.js"></script>
+  <audio>
+    <source src="assets/sounds/start1.mp3" type="audio/mpeg">
+  </audio>
+</head>
+<body>
+  <div class="anywhere">
+    <h1 class="aw">Click anywhere to Continue.</h1>
+  </div>
+  <div class="cur" style="display:none;">
+    <img src="assets/icons/cursor.png" class="curImg">
+  </div>
+  <div class="everything" style="display:none;">
+    <center>
+      <h1 class="aw aw3" style="display:none;">Wony <span class="plsdontsuemesony">(pls dont sue me sony)</span></h1>
+      <br>
+      <br>
+      <img src="" class="startimg">
+      <br>
+      <br>
+      <h1 class="aw aw2" style="display:none;">ChevStation1</h1>
+    </center>
+  </div>
+  <div class="mainStuff" style="display:none;">
+    <center>
+      <div class="itemsCenter">
+        <div class="icItem games">
+          <div class="memcardtitle" style="background-color: green;"><h1 class="aw memcardname">Games</h1></div>
+          <img src="assets/icons/memcardicon.png" height="105">
+        </div>
+        <div class="icItem audioplayer">
+          <div class="musicplayertitle"><h1 class="aw cdplayername">Audio Player</h1></div>
+          <img src="assets/icons/cdicon.png" height="105">
+        </div>
+      </div>
+        <div class="audPlayer" style="display:none;">
+          <center>
+            <h1 class="aw" style="color:white;">Load Audio File (.mp3, .wav)</h1>
+            <input type="file" class="audioLoader" accept=".mp3, .wav" multiple>
+            <br>
+            <br>
+            <br>
+            <audio src="" controls class="audioLoaderPlayer"></audio>
+            <br>
+            <br>
+            <br>
+            <button class="gobacktohome">Go Back</button>
+          </center>
+        </div>
+        <div class="license" style="z-index:2; display:none;">
+          <center>
+            <br>
+            <br>
+            <img src="assets/icons/license.png">
+            <br>
+            <br>
+            <br>
+            <br>
+            <h1 class="aw" style="color:white;">Licensed by: Wony</h1>
+            <br>
+            <br>
+            <br>
+            <br>
+            <h1 class="aw lreigon" style="color:white; font-size:23px;"></h1>
+          </center>
+        </div>
+        <div class="gamePlayer" style="display:none;">
+          <iframe src="" style="width:100%; height:100vh; background-color: white;"></iframe>
+        </div>
+        <div class="gamesWindow" style="display:none;">
+          <center>
+            <h1 class="aw" style="color:white;">Games (.zip Only!)</h1>
+            <input type="file" class="selectedGame" accept=".zip">
+            <h1 class="aw" style="color:white;">Download Games <a class="aw gamesDownloader" style="color:white; text-decoration: underline;">Here</a></h1>
+            <br>
+            <br>
+            <button class="gobacktohome">Go Back</button>
+          </center>
+        </div>
+    </center>
+  </div>
+</body>
+</html>
+<script>
+  var anywhere = document.querySelector(".anywhere");
+  var everything = document.querySelector(".everything");
+  var cur = document.querySelector(".cur");
+  var gamesDownloader = document.querySelector(".gamesDownloader");
+  gamesDownloader.addEventListener("click", function(){
+    window.open("https://verygenericusername.github.io/ChevStation1Games/");
+  });
+  function dc(){
+    anywhere.style.display = "none";
+    everything.style.display = "";
+    cursor.set();
+    cur.style.display = "";
+    document.removeEventListener("click", dc);
+    other.playAudio("start1.mp3");
+    setTimeout(function(){
+      other.start();
+    },1500);
+    setTimeout(function(){
+      var aw2 = document.querySelector(".aw2");
+      aw2.style.display = "";
+      var aw3 = document.querySelector(".aw3");
+      aw3.style.display = "";
+      aw2.style.fontSize = "70px";
+    },2500);
+    setTimeout(function(){
+      other.freezeStartupLogo();
+    },4000);
+    setTimeout(function(){
+      everything.style.display = "none";
+      var mainStuff = document.querySelector(".mainStuff");
+      mainStuff.style.display = "";
+      document.body.style.backgroundImage = "url('assets/icons/BG.png')"
+      document.body.style.backgroundSize = "cover";
+      document.body.style.backgroundRepeat = "no-repeat";
+      document.body.style.backgroundPosition = "center";
+      var winStyle = "width=400,height=300,top=100,left=100,resizable=yes";
+      var audPlayer = document.querySelector(".audPlayer");
+      var itemsCenter = document.querySelector(".itemsCenter");
+      var audioplayer = document.querySelector(".audioplayer");
+      var gobacktohome = document.querySelectorAll(".gobacktohome");
+      var audioLoader = document.querySelector(".audioLoader");
+        var audioLoaderPlayer = document.querySelector(".audioLoaderPlayer");
+        var gamesWindow = document.querySelector(".gamesWindow");
+        var selectedGame = document.querySelector(".selectedGame");
+        var games = document.querySelector(".games");
+        var gamePlayer = document.querySelector(".gamePlayer");
+      audioplayer.addEventListener("click", function(){
+        audPlayer.style.display = "";
+        itemsCenter.style.display = "none";
+        function read(input){
+          var files = input.files[0];
+          var reader = new FileReader();
+          reader.onload = function(){
+            var result = reader.result;
+            audioLoaderPlayer.src = result;
+            audioLoaderPlayer.load();
+          }
+          reader.readAsDataURL(files);
+        }
+        audioLoader.addEventListener("change",function(){
+          read(this);
+        });
+      });
+      games.addEventListener("click", function(){
+          itemsCenter.style.display = "none";
+          gamesWindow.style.display = "";
+        });
+        var gameContent = "";
+        function license(c,r){
+          if(c === "ChevStation1"){
+            if(r === "SCEA"){
+              var licenseWindow = document.querySelector(".license");
+              var lreigon = document.querySelector(".lreigon");
+              lreigon.innerHTML = r + "&#8482;";
+              licenseWindow.style.display = "";
+              var lSound = new Audio("assets/sounds/license.mp3");
+              lSound.play();
+              setTimeout(function(){
+                gamePlayer.style.display = "";
+                licenseWindow.style.display = "none";
+                var gameWindow = window.open();
+                gameWindow.document.write(gameContent);
+                var close = window.open(location,"_self");
+                close.close();
+              },8500);
+            }
+          }
+        }
+        function getContentsOfZip(data){
+          var zip = new JSZip();
+          zip.loadAsync(data).then(function(contents){
+            var fileNames = Object.keys(contents.files);
+
+            fileNames.forEach(function(fileName){
+              if(fileName.endsWith(".cs1")){
+                var file = contents.files[fileName];
+                file.async("string").then(function(content){
+                  var licensedata = JSON.parse(content);
+                  license(licensedata.console,licensedata.reigon);
+                });
+              }
+              if(fileName.endsWith(".html")){
+                var file = contents.files[fileName];
+                file.async("string").then(function(content){
+                  gameContent = content;
+                });
+              }
+            });
+          });
+        }
+        function readZip(input){
+          var files = input.files[0];
+          var reader = new FileReader();
+          reader.onload = function(){
+            var result = reader.result;
+            getContentsOfZip(result);
+          }
+          reader.readAsArrayBuffer(files);
+        }
+        selectedGame.addEventListener("change", function(){
+          readZip(this);
+        });
+        for(let i = 0; i < gobacktohome.length; i++){
+          gobacktohome[i].addEventListener("click", function(){
+        audPlayer.style.display = "none";
+        selectedGame.value = "";
+        gamesWindow.style.display = "none";
+        itemsCenter.style.display = "";
+        audioLoaderPlayer.src = "";
+        audioLoader.value = "";
+      });
+        }
+    },8700);
+  }
+  document.addEventListener("click", dc)
+</script>

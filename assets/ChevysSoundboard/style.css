@@ -1,0 +1,12 @@
+@import url("fonts/rb.ttf");
+*{
+    position:relative;
+}
+h1 {
+    font-family: 'Roboto', sans-serif;
+    color:black;
+}
+h4 {
+    font-family: 'Roboto', sans-serif;
+    color:black;
+}
