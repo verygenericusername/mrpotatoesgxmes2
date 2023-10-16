@@ -110,6 +110,13 @@
                 <br>
                 <button class="game13">Play</button>
             </div>
+                        <div class="gxme" style="display:inline-block; padding:10px;">
+                <img src="assets/noicon.png" height="100">
+                <br>
+                <h3>TBG95</h3>
+                <br>
+                <button class="game14">Play</button>
+            </div>
         </div>
         <br>
         <h4>Scroll up to see more games if currently scrolled down.</h4>
@@ -145,6 +152,7 @@
         var game11 = document.querySelector(".game11");
         var game12 = document.querySelector(".game12");
         var game13 = document.querySelector(".game13");
+        var game14 = document.querySelector(".game14");
         load();
         function load(){
              gxmes.style.display = "";   
@@ -191,6 +199,15 @@
         game13.addEventListener("click", function(){
             window.open("assets/ChevStation1/index.html");
         });
+        game14.addEventListener("click", function(){
+            var win = window.open();
+            var url = "https://tbg95.github.io/";
+            var iframe = document.createElement("iframe");
+            iframe.style.width = "100%";
+            iframe.style.height = "100%";
+            iframe.src = url;
+            win.document.body.appendChild(iframe);
+        }
     </script>
 </body>
 </html>
